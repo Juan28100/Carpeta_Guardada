@@ -1,0 +1,53 @@
+/* 1. Variables por defecto (Tema Claro) */
+:root {
+  --fondo: #f4f4f5;
+  --texto: #18181b;
+  --boton-fondo: #ffffff;
+  --boton-borde: #d4d4d8;
+}
+
+/* 2. Variables para el Tema Oscuro */
+body.tema-oscuro {
+  --fondo: #18181b;
+  --texto: #f4f4f5;
+  --boton-fondo: #27272a;
+  --boton-borde: #3f3f46;
+}
+
+/* 3. Aplicamos las variables al Body */
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  font-family: Arial, sans-serif;
+  
+  /* Transición suave al cambiar de color */
+  transition: background-color 0.4s ease, color 0.4s ease; 
+  
+  /* Centrado del contenido para el ejemplo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 4. Estilos de los botones */
+button {
+  background-color: var(--boton-fondo);
+  color: var(--texto);
+  border: 1px solid var(--boton-borde);
+  padding: 12px 24px;
+  margin: 0 10px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+button:active {
+  transform: scale(0.95); /* Efecto de clic */
+}

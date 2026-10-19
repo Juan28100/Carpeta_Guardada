@@ -1,0 +1,91 @@
+/* Navbar */
+.navbar { position: fixed; inset: 0 0 auto 0; z-index: 20; height: 64px; display: flex;
+  align-items: center; justify-content: space-between; padding: 0 1.25rem;
+  background: var(--morado); color: #fff; box-shadow: 0 2px 0 var(--morado-oscuro); }
+.navbar__marca { font: 800 1.5rem var(--fuente-titulo); letter-spacing: .01em; }
+.navbar__carrito { position: relative; display: grid; place-items: center; width: 46px; height: 46px;
+  border: 0; border-radius: 50%; background: transparent; color: #fff; cursor: pointer; }
+.navbar__carrito:hover { background: var(--morado-oscuro); }
+.navbar__contador { position: absolute; top: 0; right: 0; min-width: 20px; height: 20px; padding: 0 5px;
+  border-radius: 10px; background: var(--mango); color: var(--tinta); font-size: .8rem;
+  font-weight: 700; line-height: 20px; text-align: center; }
+
+/* Catálogo */
+.catalogo { max-width: 1080px; margin: 0 auto; padding: 88px 1.25rem 3rem; }
+.catalogo h1 { font: 800 clamp(2rem, 5vw, 3rem)/1.1 var(--fuente-titulo); color: var(--morado-claro); }
+.catalogo__intro { margin: .5rem 0 1.75rem; color: var(--tinta-suave); }
+.rejilla { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
+.producto { overflow: hidden; display: flex; flex-direction: column; gap: .5rem; padding: 1.1rem;
+  background: var(--superficie); border: 1px solid var(--linea); border-radius: 10px; }
+.producto__img { display: block; width: calc(100% + 2.2rem); aspect-ratio: 4 / 3; margin: -1.1rem -1.1rem .4rem; object-fit: cover; }
+.producto__nombre { font: 600 1.2rem/1.25 var(--fuente-titulo); }
+.producto__precio { font: 800 1.6rem var(--fuente-titulo); color: var(--morado-claro); }
+.producto__stock { color: var(--tinta-suave); font-size: .95rem; }
+.producto__agotado { color: var(--peligro); font-size: .95rem; font-weight: 600; }
+.producto__cantidad { display: flex; align-items: center; gap: .6rem; margin-top: auto; padding-top: .5rem; }
+.producto .boton { margin-top: .25rem; }
+
+/* Campo numérico (sin flechas del navegador) */
+.cantidad { width: 4.2rem; height: 40px; padding: 0 .5rem; text-align: center; font-weight: 600;
+  border: 1.5px solid var(--linea); border-radius: 6px; background: var(--campo); color: var(--tinta);
+  appearance: textfield; -moz-appearance: textfield; }
+.cantidad::-webkit-outer-spin-button, .cantidad::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+/* Botones */
+.boton { min-height: 40px; padding: 0 1.1rem; border: 0; border-radius: 6px; font-weight: 700; cursor: pointer; }
+.boton--primario { background: var(--morado); color: #fff; }
+.boton--primario:hover:not(:disabled) { background: var(--morado-oscuro); }
+.boton:disabled { background: #2d2442; color: #7d7195; cursor: not-allowed; }
+.boton--icono { width: 40px; padding: 0; background: var(--fondo); color: var(--tinta);
+  border: 1.5px solid var(--linea); font-size: 1.2rem; line-height: 1; }
+.boton--icono:hover { border-color: var(--morado); }
+
+/* Panel del carrito */
+.velo { position: fixed; inset: 0; z-index: 30; background: rgba(5, 2, 12, .7); }
+.panel { position: fixed; top: 0; right: 0; bottom: 0; z-index: 40; width: min(440px, 100%);
+  display: flex; flex-direction: column; background: var(--superficie);
+  box-shadow: -8px 0 24px rgba(0, 0, 0, .18); animation: entrar .22s ease-out; }
+@keyframes entrar { from { transform: translateX(100%); } }
+.panel__cabecera { display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem; border-bottom: 1px solid var(--linea); }
+.panel__cabecera h2 { font: 800 1.5rem var(--fuente-titulo); }
+.panel__vacio { padding: 2rem 1.25rem; color: var(--tinta-suave); }
+.panel__lista { flex: 1; margin: 0; padding: 0; overflow-y: auto; list-style: none; }
+
+.item { display: grid; grid-template-columns: 1fr auto; gap: .5rem .75rem; padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--linea); }
+.item__info { display: flex; align-items: center; gap: .75rem; }
+.item__img { width: 52px; height: 52px; flex: none; border-radius: 8px; object-fit: cover; }
+.item__nombre { font-weight: 700; }
+.item__unitario { color: var(--tinta-suave); font-size: .9rem; }
+.item__controles { display: flex; align-items: center; gap: .4rem; grid-column: 1; }
+.item__subtotal { grid-column: 2; grid-row: 1; font-weight: 700; text-align: right; }
+.item__quitar { grid-column: 2; grid-row: 2; align-self: center; padding: 0; border: 0; background: none;
+  color: var(--peligro); font-weight: 600; text-decoration: underline; cursor: pointer; }
+
+.panel__totales { padding: 1rem 1.25rem 1.25rem; border-top: 2px solid var(--morado); background: var(--fondo); }
+.panel__totales p { display: flex; justify-content: space-between; align-items: baseline; }
+.panel__total { margin-top: .4rem; font-size: 1.25rem; }
+.panel__total strong { font: 800 1.6rem var(--fuente-titulo); color: var(--morado-claro); }
+
+/* Toasts */
+.toasts { position: fixed; left: 50%; bottom: 1rem; z-index: 100; width: min(460px, calc(100% - 2rem));
+  display: flex; flex-direction: column; gap: .5rem; transform: translateX(-50%); }
+.toast { display: flex; align-items: center; gap: .75rem; padding: .75rem .9rem;
+  background: #2a1f42; color: #fff; border: 1px solid var(--linea); border-left: 6px solid var(--morado);
+  border-radius: 8px; box-shadow: 0 6px 20px rgba(0, 0, 0, .6); animation: subir .2s ease-out; }
+@keyframes subir { from { opacity: 0; transform: translateY(12px); } }
+.toast--warning { border-left-color: var(--mango); }
+.toast--success { border-left-color: #4caf7a; }
+.toast__texto { flex: 1; }
+.toast__accion { min-height: 36px; padding: 0 .8rem; border: 0; border-radius: 6px;
+  background: var(--mango); color: var(--tinta); font-weight: 700; cursor: pointer; }
+.toast__cerrar { width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent;
+  color: #fff; font-size: 1.4rem; line-height: 1; cursor: pointer; }
+.toast__cerrar:hover { background: rgba(255, 255, 255, .15); }
+
+@media (max-width: 480px) {
+  .item { grid-template-columns: 1fr; }
+  .item__subtotal, .item__quitar { grid-column: 1; grid-row: auto; text-align: left; }
+}

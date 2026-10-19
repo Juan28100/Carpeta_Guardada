@@ -1,0 +1,46 @@
+#Dependencias
+node_modules/
+
+# Variables de entorno
+package-lock.json
+
+# Uploads
+uploads/
+
+# Builds
+dist/
+build/
+
+# cache
+.cache/
+
+#logs
+logs/
+*.log
+npm_debug.log*
+yarn-debug.log*
+yarn-error-log*
+pnpm-debug.log*
+
+# Temporales
+tmp/
+temp/
+*.tmp
+
+# IDEs
+.vscode/
+.idea/
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Docker
+docker-data/
+*.pid
+
+# Cobertura
+coverage/
+
+# Configuracion sensible
+config/secrets.js

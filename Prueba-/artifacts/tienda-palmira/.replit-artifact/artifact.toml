@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "TIENDA PALMIRA"
+description = "Tienda web para explorar productos colombianos, agregar cantidades al carrito y revisar subtotales y total con controles de stock."
+version = "1.0.0"
+id = "artifacts/tienda-palmira"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19781
+
+[services.development]
+run = "pnpm --filter @workspace/tienda-palmira run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/tienda-palmira", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/tienda-palmira/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19781"
+BASE_PATH = "/"
